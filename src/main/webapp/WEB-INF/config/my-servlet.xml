@@ -15,6 +15,7 @@ http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 	<context:component-scan base-package="com.training.service" />
 	<context:component-scan base-package="com.training.controller" />
 	<context:component-scan base-package="com.training.bean" />
+	<context:component-scan base-package="com.training.dto" />
 
 	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
 

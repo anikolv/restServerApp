@@ -20,17 +20,15 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	public void deleteStudent(int studentId) {
-		// TODO Auto-generated method stub
-		
+		studentDao.deleteStudent(studentId);
 	}
 
 	public StudentBean getStudent( int studendId ) {
 		return studentDao.getStudent(studendId);
 	}
 
-	public List<StudentBean> getAllStudens() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<StudentBean> getAllStudents() {
+		return studentDao.getAllStudents();
 	}
 
 }

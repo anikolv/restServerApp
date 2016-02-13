@@ -9,6 +9,6 @@ public interface StudentDAO {
 	public void addStudent( StudentBean student );
 	public void deleteStudent( int studentId );
 	public StudentBean getStudent( int studendId );
-	public List<StudentBean> getAllStudens();
+	public List<StudentBean> getAllStudents();
 
 }
