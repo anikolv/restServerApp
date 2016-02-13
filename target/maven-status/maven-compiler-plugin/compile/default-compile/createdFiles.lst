@@ -1,0 +1,6 @@
+com\training\controller\StudentController.class
+com\training\service\StudentServiceImpl.class
+com\training\service\StudentService.class
+com\training\dao\StudentDAO.class
+com\training\dao\StudentDAOImpl.class
+com\training\bean\StudentBean.class
