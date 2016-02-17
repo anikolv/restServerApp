@@ -71,4 +71,9 @@ public class StudentController {
 		}
 		return responseDTO;
 	}
+	
+	@RequestMapping(value = "/about")
+	public String aboutPage() {
+		return "about";
+	}
 }
