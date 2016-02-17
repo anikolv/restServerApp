@@ -4,8 +4,11 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.training.bean.StudentBean;
@@ -15,8 +18,11 @@ import com.training.bean.StudentBean;
 public class ResponseDTO {
 
 	private boolean success;
+	
 	private List<StudentBean> students;
+	
 	private StudentBean student;
+	
 	private String message;
 
 	public String getMessage() {
@@ -35,6 +41,8 @@ public class ResponseDTO {
 		this.student = student;
 	}
 
+	@XmlElementWrapper(name="students")
+	@XmlElementRef()
 	public List<StudentBean> getStudents() {
 		return students;
 	}
@@ -50,5 +58,7 @@ public class ResponseDTO {
 	public void setSuccess(boolean success) {
 		this.success = success;
 	}
+
+	
 
 }

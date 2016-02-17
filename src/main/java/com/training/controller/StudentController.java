@@ -1,10 +1,6 @@
 package com.training.controller;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +13,6 @@ import com.training.bean.StudentBean;
 import com.training.dto.ResponseDTO;
 import com.training.service.StudentService;
 
-import antlr.collections.List;
-
 @RestController
 @RequestMapping(value = "/student")
 @EnableWebMvc
@@ -26,8 +20,7 @@ public class StudentController {
 
 	@Autowired
 	StudentService studentService;
-
-	@Autowired
+	
 	ResponseDTO responseDTO;
 
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
@@ -35,11 +28,9 @@ public class StudentController {
 
 		try {
 			StudentBean student = studentService.getStudent(studentId);
-			responseDTO.setSuccess(true);
-			responseDTO.setStudent(student);
+			responseDTO = studentService.converToDTO(true, "success", student, null);
 		} catch (Exception e) {
-			responseDTO.setSuccess(false);
-			responseDTO.setMessage(e.getMessage());
+			responseDTO = studentService.converToDTO(false, e.getMessage(), null, null);
 		}
 
 		return responseDTO;
@@ -50,9 +41,9 @@ public class StudentController {
 
 		try {
 			studentService.addStudent(student);
-			responseDTO.setSuccess(true);
+			responseDTO = studentService.converToDTO(true, "success", null, null);
 		} catch (Exception e) {
-			responseDTO.setSuccess(false);
+			responseDTO = studentService.converToDTO(false, e.getMessage(), null, null);
 		}
 		return responseDTO;
 	}
@@ -62,9 +53,9 @@ public class StudentController {
 
 		try {
 			studentService.deleteStudent(studentId);
-			responseDTO.setSuccess(true);
+			responseDTO = studentService.converToDTO(true, "success", null, null);
 		} catch (Exception e) {
-			responseDTO.setSuccess(false);
+			responseDTO = studentService.converToDTO(false, e.getMessage(), null, null);
 		}
 		return responseDTO;
 	}
@@ -74,10 +65,9 @@ public class StudentController {
 
 		try {
 			java.util.List<StudentBean> students = studentService.getAllStudents();
-			responseDTO.setSuccess(true);
-			responseDTO.setStudents(students);
+			responseDTO = studentService.converToDTO(true,"success", null, students);
 		} catch (Exception e) {
-			responseDTO.setSuccess(false);
+			responseDTO = studentService.converToDTO(false,e.getMessage(), null, null);
 		}
 		return responseDTO;
 	}
