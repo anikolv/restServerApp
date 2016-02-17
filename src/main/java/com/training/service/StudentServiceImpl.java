@@ -1,9 +1,6 @@
 package com.training.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import com.training.bean.StudentBean;
 import com.training.dao.StudentDAO;
 import com.training.dto.ResponseDTO;
@@ -11,7 +8,7 @@ import com.training.dto.ResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("categoryService")
+@Service
 public class StudentServiceImpl implements StudentService {
 
 	@Autowired
